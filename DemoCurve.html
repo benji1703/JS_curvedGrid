@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+    <script src="/aframe_component/curved-grid-layout.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js"></script>
+
+</head>
+
+<body>
+    <a-scene>
+
+        <a-assets>
+            <img id="panda" src="https://images-na.ssl-images-amazon.com/images/I/41NQQxIgiPL._SY300_.jpg" crossorigin="">
+            <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg" crossorigin="">
+        </a-assets>
+
+        <!-- Grid -->
+        <a-entity curved-grid-layout="marginColumn: 0.5; marginRow: 0.5; curved: true" position="0 1 -2"
+            id="a2"></a-entity>
+
+        <a-entity curved-grid-layout="marginColumn: 0.5; marginRow: 0.5; curved: false" position="0 1 -2"
+            id="a3"></a-entity>
+
+        <!-- Ground -->
+        <a-plane src="#groundTexture" rotation="-90 0 0" width="30" height="30"></a-plane>
+        <!-- Sky -->
+        <a-sky color="#ADD8E6"></a-sky>
+
+        <!-- Camera + Cursor. -->
+        <a-camera>
+            <a-cursor id="cursor">
+                <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+            </a-cursor>
+        </a-camera>
+    </a-scene>
+</body>
+
+</html>
